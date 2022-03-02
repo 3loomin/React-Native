@@ -1,35 +1,24 @@
-import React, { useState } from "react";
-import { Button, Text, View } from "react-native";
+import React, { useState } from 'react';
+import { Text, TextInput, View } from 'react-native';
 
-const Cat = (props) => {
-  const [isHungry, setIsHungry] = useState(false);
-  //useState( 여기 ) 여기에는 문자열, 숫자, 부울, 배열, 개체 등 모든 종류의 데이터를 추적하는 데 사용할 수 있습니다 . 예를 들어 고양이를 쓰다듬어준 횟수를 추적할 수 있습니다 const [timesPetted, setTimesPetted] = useState(0)!
+const PizzaTranslator = () => {
+  const [text, setText] = useState('');
   return (
-    <View>
+    <View style={{padding: 10}}>
       <Text></Text>
       <Text></Text>
       <Text></Text>
-      <Text>
-        I am {props.name}, and I am {isHungry ? "full" : "hungry" }!
-      </Text>
-      <Button
-        onPress={() => {
-          setIsHungry(true);
-        }}
-        disabled={isHungry}
-        title={isHungry ?  "Thank you!" : "Pour me some milk, please!"}
+      <TextInput
+        style={{height: 40}}
+        placeholder="Type here to translate!"
+        onChangeText={newText => setText(newText)}
+        defaultValue={text}
       />
+      <Text style={{padding: 10, fontSize: 42}}>
+        {text.split(' ').map((word) => word && '🍕').join(' ')}
+      </Text>
     </View>
   );
 }
 
-const Cafe = () => {
-  return (
-    <>
-      <Cat name="Munkustrap" />
-      <Cat name="Spot" />
-    </>
-  );
-}
-
-export default Cafe;
+export default PizzaTranslator; 
