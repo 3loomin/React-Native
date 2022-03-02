@@ -1,35 +1,42 @@
 import React from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { SectionList, StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 22
   },
+  sectionHeader: {
+    paddingRight: 10,
+    paddingLeft: 10,
+    paddingBottom: 2,
+    paddingTop:2,
+    fontSize: 14,
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(247,247,247,1.0)',
+  },
   item: {
     padding: 10,
-    fontSize: 18,
-    height: 44
-  }
-});
+    fontSize: 8,
+    height: 44,
+  },
+})
 
-const FlatListBasics = () => {
-  return(
-    <View style = {styles.container}>
-      <FlatList
-        data={[
-          {key: 'Devin'},
-          {key: 'Dan'},
-          {key: 'Dominic'},
-          {key: 'shin'},
-          {key: 'changmin'},
-          {key: '3loomin'}
+const SectionListBasics = () => {
+  return (
+    <View style={styles.container}>
+      <SectionList
+        sections={[
+          {title: 'D', data: ['Daniel', 'Dan', 'Dominic']},
+          {title: '*', data: ['Shin', 'Changmin', '3loomin']},
         ]}
-        renderItem={({item}) => <Text style ={styles.item}>
-          {item.key}
-        </Text>}
+        renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+        renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+        keyExtractor={(item, index) => index}
       />
     </View>
   );
 }
-export default FlatListBasics;
+
+export default SectionListBasics;
+
