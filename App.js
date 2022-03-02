@@ -1,16 +1,28 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View,  StyleSheet } from 'react-native';
 
-const HelloWorldApp = () => {
-  return (
-      <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center"
-          }}>
-        <Text>hi! this is my first React-Native</Text>
-      </View>
-  )
+const style = StyleSheet.create({
+  center: {
+    alignItems: 'center'
+  }
+})
+
+const Greeting = (props) => {
+  return(
+    <View style = {style.center}>
+      <Text>Hello {props.name}!!!</Text>
+    </View>
+  );
 }
-export default HelloWorldApp;
+
+const LotsGreetings = () => {
+  return(
+    <View style = {[style.center,{top:50}]}>
+      <Greeting name = 'RExxar'/>
+      <Greeting name = 'Jaina'/>
+      <Greeting name = 'Valeera'/>
+    </View>
+  );
+}
+
+export default LotsGreetings;
