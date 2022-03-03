@@ -1,42 +1,29 @@
 import React from 'react';
-import { SectionList, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+
+const LotsOfStyles = () => {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.red}>just red</Text>
+        <Text style={styles.bigBlue}>just bigBlue</Text>
+        <Text style={[styles.bigBlue, styles.red]}>bigBlue, then red</Text>
+        <Text style={[styles.red, styles.bigBlue]}>red, then bigBlue</Text>
+      </View>
+    );
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 22
+    marginTop: 50,
   },
-  sectionHeader: {
-    paddingRight: 10,
-    paddingLeft: 10,
-    paddingBottom: 2,
-    paddingTop:2,
-    fontSize: 14,
+  bigBlue: {
+    color: 'blue',
     fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
+    fontSize: 30,
   },
-  item: {
-    padding: 10,
-    fontSize: 8,
-    height: 44,
+  red: {
+    color: 'red',
   },
-})
+});
 
-const SectionListBasics = () => {
-  return (
-    <View style={styles.container}>
-      <SectionList
-        sections={[
-          {title: 'D', data: ['Daniel', 'Dan', 'Dominic']},
-          {title: '*', data: ['Shin', 'Changmin', '3loomin']},
-        ]}
-        renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-        renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
-        keyExtractor={(item, index) => index}
-      />
-    </View>
-  );
-}
-
-export default SectionListBasics;
-
+export default LotsOfStyles;
