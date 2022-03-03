@@ -3,20 +3,17 @@ import { View } from 'react-native';
 
 const FixedDimensionsBasics = () => {
   return (
-    <View>
+    <View style={{ flex: 1}}>
       <View style={{
-        width: 50,
-        height: 50,
+        flex: 1,
         backgroundColor: 'powderblue'
       }}/>
       <View style={{
-        width: 100,
-        height: 100,
+        flex: 2,
         backgroundColor: 'skyblue'
       }}/>
       <View style={{
-        width: 150,
-        height: 150,
+        flex: 3,
         backgroundColor: 'steelblue'
       }}/>
     </View>
