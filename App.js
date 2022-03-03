@@ -1,17 +1,24 @@
-import React from 'react';
-import { View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-const PercentageDimensionsBasics = () => {
-  return(
-    
-    <View style = {{height: '100%'}}>
-      
-      <View style = {{height: '15%', backgroundColor: 'powderblue'}}/>
-      <View style = {{width: '66%',height:'35%', backgroundColor: 'skyblue'}}/>
-      <View style = {{width: '33%', height: '50%', backgroundColor: 'steelblue'}}/>
-
+const Flex = () => {
+  return (
+    <View style={[styles.container, {
+      // Try setting `flexDirection` to `"row"`.
+      flexDirection: "column"
+    }]}>
+      <View style={{ flex: 1, backgroundColor: "red" }} />
+      <View style={{ flex: 2, backgroundColor: "darkorange" }} />
+      <View style={{ flex: 3, backgroundColor: "green" }} />
     </View>
   );
 };
 
-export default PercentageDimensionsBasics;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 50,
+  },
+});
+
+export default Flex;
